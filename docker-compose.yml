@@ -1,0 +1,28 @@
+services:
+  accounts:
+    image: "imad910/accounts:v3"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+    networks:
+      - "BANK"
+
+  loans:
+    image: "imad910/loans:v7"
+    container_name: loans-ms
+    ports:
+      - "8081:8081"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+    networks:
+      - "BANK"
+
+networks:
+  BANK  :
+    driver: "bridge"
